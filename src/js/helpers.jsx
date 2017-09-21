@@ -37,3 +37,12 @@ export function saveUser (user) {
     })
     .then(() => user)
 }
+
+export function get_tokens () {
+  return firebase.auth().currentUser.getToken(/* forceRefresh */ true).then(function(idToken) {
+    // Send token to your backend via HTTPS
+    // ...
+  }).catch(function(error) {
+  // Handle error
+  });
+} 
