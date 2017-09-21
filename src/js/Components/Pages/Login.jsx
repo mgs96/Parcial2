@@ -16,8 +16,8 @@ class Login extends React.Component {
 	 
     constructor () {
         super();
-        this.state = {  email: '',
-                        password: '',
+        this.state = {  email: 'jesusdavide@uninorte.edu.co',
+                        password: '012630032',
                         message:''
                      }
     
@@ -36,10 +36,7 @@ class Login extends React.Component {
       login(this.state.email,this.state.password)
       .then((user) => {
         console.log(user);
-        this.setState({
-          message: ''
-        });
-        this.props.isAuthenticated;
+        this.props.isAuthenticated();
           
       })
       .catch((error) => {

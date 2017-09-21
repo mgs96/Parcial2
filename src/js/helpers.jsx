@@ -1,11 +1,11 @@
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "xxxxx",
-    authDomain: "xxxxxx",
-    databaseURL: "xxxxxx",
-    storageBucket: "xxxxxx",
-    messagingSenderId: "xxxxxxxx"
+    apiKey: "AIzaSyB3IFpxozA1c3sj8jE6cpg4Wpu9P11TejI",
+    authDomain: "csbw-b5275.firebaseapp.com",
+    databaseURL: "https://csbw-b5275.firebaseio.com",
+    storageBucket: "csbw-b5275.appspot.com",
+    messagingSenderId: "123311217266"
 };
 firebase.initializeApp(config);
 
@@ -36,4 +36,8 @@ export function saveUser (user) {
       uid: user.uid
     })
     .then(() => user)
+}
+
+export function verify(){
+  return firebaseAuth().currentUser.getToken(true);
 }

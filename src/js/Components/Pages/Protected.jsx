@@ -18,6 +18,7 @@ class Protected extends React.Component {
 				this.state = {  
 					isAuthenticated:false  
     		    } 	    
+    		    this.authenticate = this.authenticate.bind(this);
     }
     logout() {
     	logout()
@@ -28,10 +29,7 @@ class Protected extends React.Component {
     }
   
     authenticate() {
-        console.log("success");
-        this.setState({
-          isAuthenticated: true
-        })
+           this.setState({isAuthenticated: true});
     }
     
     
