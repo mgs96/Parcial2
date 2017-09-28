@@ -10,6 +10,7 @@ import {
 
 import {logout} from './../../helpers.jsx';
 import Login from './Login.jsx';
+import Users from './Users.jsx'
 
 class Protected extends React.Component {
 	
@@ -39,17 +40,21 @@ class Protected extends React.Component {
 	  var authenticated = (
 	    <div>
 	      <p>Welcome</p>
+	      <Users />
+	      
 	      <button onClick={()=>this.logout()}>Logout</button>
       </div>
 	    );
 	  
 	  var not_authenticated = <Login isAuthenticated={this.authenticate} />;
+	  
 		return (
 		<section>
   		<h2>Protected Page</h2>
   		
-  		{this.state.isAuthenticated===true ? authenticated : not_authenticated}
-		</section>);
+  		{this.state.isAuthenticated === true ? authenticated : not_authenticated }
+		</section>
+		);
 	}
 }
 
