@@ -1,23 +1,15 @@
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom';
-
+import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import {login} from './../../helpers.jsx';
 
 
 class Login extends React.Component {
 	
-	 
     constructor () {
         super();
-        this.state = {  email: 'jesusdavide@uninorte.edu.co',
-                        password: '012630032',
+        this.state = {  email: 'mauricio.guzman.salazar@gmail.com',
+                        password: '',
                         message:''
                      }
     
@@ -47,34 +39,33 @@ class Login extends React.Component {
 	render() {
 	  
 	  
-		return (<article>
-        
+		return (
+		<article>
 		   <h2>Login</h2>
-        		<form onSubmit={this.handleSubmit}>
-                    Email   
-                    <input 
-                      value={this.state.email}    
-                      onChange={this.handleChange} 
-                      name="email"    
-                      type="email" 
-                      placeholder="email@domain.com"/>
-                      <br />
-                    Password    
-                    <input 
-                      value={this.state.password}     
-                      onChange={this.handleChange} 
-                      name="password"    
-                      type="password" 
-                      placeholder="password" />
-                      <br />
-                    <button>Send Message</button>
-              </form>
-              <p>
-              {
-                this.state.message==='' ? '' : this.state.message
-              }
-              </p>
-		</article>);
+    		<form onSubmit={this.handleSubmit}>
+    		  Email   
+          <input value={this.state.email}    
+                onChange={this.handleChange} 
+                name="email"    
+                type="email" 
+                placeholder="email@domain.com"/>
+                
+          <br />
+          
+          Password    
+          <input value={this.state.password}     
+                onChange={this.handleChange} 
+                name="password"    
+                type="password" 
+                placeholder="password" />
+          <br />
+          
+          <button>Send Message</button>
+        </form>
+        
+        <p>{this.state.message==='' ? '' : this.state.message}</p>
+		</article>
+		);
 	}
 }
 

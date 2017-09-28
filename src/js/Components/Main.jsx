@@ -26,22 +26,23 @@ class Main extends React.Component {
 	}
 	
 	render() {
-		return (<main>
-		<Header />
-		
-		 <Router>
-		    <div>
-		      <ul>
-		        <li><Link to="/public">Public Page</Link></li>
-		        <li><Link to="/protected" >Protected Page</Link></li>
-		      </ul>
-		      <Route path="/public" component={Public}/>
-		      <Route path="/protected" component={Protected}/>
-		      
-		    </div>
-		  </Router>
-		
-		<Footer />
+		return (
+		<main>
+			<Header />
+			
+			 <Router>
+			    <div>
+			      <ul>
+			        <li><Link to="/public">Public Page</Link></li>
+			        <li><Link to="/protected" >Protected Page</Link></li>
+			      </ul>
+			      <Route path="/public" component={Public}/>
+			      <Route path="/protected" component={Protected}/>
+			      
+			    </div>
+			  </Router>
+			
+			<Footer />
 		</main>);
 	}
 }

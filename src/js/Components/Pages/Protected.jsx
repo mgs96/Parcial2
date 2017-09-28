@@ -17,11 +17,12 @@ class Protected extends React.Component {
         super(); 
 				this.state = {  
 					isAuthenticated:false  
-    		    } 	    
-    		    this.authenticate = this.authenticate.bind(this);
+    		} 	    
+    		this.authenticate = this.authenticate.bind(this);
     }
+    
     logout() {
-    	logout()
+      logout()
     	.then(()=>{
     		this.setState({isAuthenticated: false});
     	})
@@ -29,24 +30,25 @@ class Protected extends React.Component {
     }
   
     authenticate() {
-           this.setState({isAuthenticated: true});
+      this.setState({isAuthenticated: true});
     }
     
     
+    
 	render() {
-		return (<section>
-		<h2>Protected Page</h2>
-		
-		{
-          this.state.isAuthenticated===true ? 
-          <div>
-    	      <p>Welcome</p>
-    	      <button onClick={()=>this.logout()}>Logout</button>
-          </div>
-        : 
-         <Login isAuthenticated={this.authenticate} /> 
-		}
-			
+	  var authenticated = (
+	    <div>
+	      <p>Welcome</p>
+	      <button onClick={()=>this.logout()}>Logout</button>
+      </div>
+	    );
+	  
+	  var not_authenticated = <Login isAuthenticated={this.authenticate} />;
+		return (
+		<section>
+  		<h2>Protected Page</h2>
+  		
+  		{this.state.isAuthenticated===true ? authenticated : not_authenticated}
 		</section>);
 	}
 }
