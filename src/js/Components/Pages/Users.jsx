@@ -38,12 +38,12 @@ class Users extends React.Component {
   }
   
   componentDidMount() {
-    const messagesRef = firebase.database().ref().child('messages');
-    messagesRef.on('value', (snapshot) => {
-      let messages = snapshot.val();
+    const usersRef = firebase.database().ref().child('users');
+    usersRef.on('value', (snapshot) => {
+      let users = snapshot.val();
       let newState = [];
-      for (let message in messages) {
-          console.log(message);
+      for (let user in users) {
+          console.log(user);
         newState.push({
           id:message,
           name: messages[message].name,
