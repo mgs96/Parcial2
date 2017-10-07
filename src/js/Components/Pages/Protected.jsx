@@ -50,8 +50,6 @@ class Protected extends React.Component {
 	  
 		return (
 		<section>
-  		<h2>Protected Page</h2>
-  		
   		{this.state.isAuthenticated === true ? authenticated : not_authenticated }
 		</section>
 		);

@@ -8,9 +8,11 @@ import {
   withRouter
 } from 'react-router-dom';
 
-import Header from './Layout/Header.jsx';
-import Footer from './Layout/Footer.jsx';
-import Aside from './Layout/Aside.jsx';
+import Header 	 from 						 './Layout/Header.jsx';
+import Footer 	 from							 './Layout/Footer.jsx';
+import Aside		 from								'./Layout/Aside.jsx';
+import Public    from   						'./Pages/Public.jsx';
+import Protected from 					 './Pages/Protected.jsx';
 
 class Main extends React.Component {
 	constructor(props) {
@@ -23,9 +25,16 @@ class Main extends React.Component {
 	render() {
 		return (
 			<main>
-				<Header />
-				  
-				<Footer />
+				<Router >
+					<div>
+						<Header />
+						
+						<Route path="/public" component={Public}/>
+		        <Route path="/protected" component={Protected}/>
+			        
+			      <Footer />
+		      </div>
+		    </Router>
 			</main>
 		);
 	}

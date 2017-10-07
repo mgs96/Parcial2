@@ -60,7 +60,7 @@ class Users extends React.Component {
   render() {
     return (
       <div>
-      <h2>Create users</h2>
+        <h2>Create users</h2>
     		<form onSubmit={this.handleSubmit}>
     		  Email   
           <input value={this.state.email}    

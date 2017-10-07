@@ -7,13 +7,10 @@ import FlatButton from 'material-ui/FlatButton';
 import Toggle from 'material-ui/Toggle';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+
+import Protected from './../Pages/Protected.jsx'
+import Public from './../Pages/Public.jsx'
 
 class Login extends React.Component {
   render() {
@@ -32,9 +29,11 @@ const Logged = (props) => (
     targetOrigin={{horizontal: 'right', vertical: 'top'}}
     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
   >
-    <MenuItem primaryText="Refresh" />
-    <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
+    
+    <MenuItem primaryText="Inicio"  containerElement={<Link to="/" />}/>
+    <MenuItem primaryText="Protegido"     containerElement={<Link to="/protected" />}/>
+    <MenuItem primaryText="Publico" containerElement={<Link to="/public" />}/>
+    
   </IconMenu>
 );
 

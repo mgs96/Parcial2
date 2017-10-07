@@ -2,16 +2,18 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link, Redirect, withRouter} from 'react-router-dom';
 import {login} from './../../helpers.jsx';
-
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 class Login extends React.Component {
 	
     constructor () {
         super();
-        this.state = {  email: 'mauricio.guzman.salazar@gmail.com',
-                        password: '',
-                        message:''
-                     }
+        this.state = {  
+          email: 'administrador@email.com',
+          password: 'administrador',
+          message:''
+       }
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,30 +39,35 @@ class Login extends React.Component {
     }
       
 	render() {
-	  
+	  const style = {
+      margin: 12,
+    };
 	  
 		return (
-		<article>
+		<article style={{ textAlign: 'center' }}>
 		   <h2>Login</h2>
-    		<form onSubmit={this.handleSubmit}>
-    		  Email   
-          <input value={this.state.email}    
-                onChange={this.handleChange} 
-                name="email"    
-                type="email" 
-                placeholder="email@domain.com"/>
-                
+    		<form>
+    		  <TextField
+            hintText="Introduce tu email"
+            name="email"
+            onChange={this.handleChange}
+            value={this.state.email}
+          />
+          
           <br />
           
-          Password    
-          <input value={this.state.password}     
-                onChange={this.handleChange} 
-                name="password"    
-                type="password" 
-                placeholder="password" />
+          <TextField
+            hintText="Introduce tu contraseña"
+            floatingLabelText="Password"
+            name="password"    
+            type="password"
+            onChange={this.handleChange}
+            value={this.state.password}
+          />
+          
           <br />
           
-          <button>Send Message</button>
+          <RaisedButton label="Primary" primary={true} style={style} onClick={this.handleSubmit} />
         </form>
         
         <p>{this.state.message==='' ? '' : this.state.message}</p>
