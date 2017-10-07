@@ -41,27 +41,20 @@ const Logged = (props) => (
 class Nav extends React.Component {
 	constructor () {
 		super();
+		
     this.state = {
     	logged: true
     }
 	}
+	
 	render() {
 		return ( 
-			
 			<nav>
-			<AppBar
-          title="Title"
-          iconElementRight={this.state.logged ? <Logged /> : <Login />}
-        />
-				<AppBar title="Title"/>
-				<Router>
-			    <div>
-			      <ul>
-			        <li><Link to="/public">Public Page</Link></li>
-			        <li><Link to="/protected" >Protected Page</Link></li>
-			      </ul>
-			    </div>
-			  </Router>
+  			<AppBar
+            title="Title"
+            iconElementRight={this.state.logged ? <Logged /> : <Login />}
+            showMenuIconButton={false}
+          />
 			</nav>
 		);
 	}

@@ -12,20 +12,9 @@ import Header from './Layout/Header.jsx';
 import Footer from './Layout/Footer.jsx';
 import Aside from './Layout/Aside.jsx';
 
-import Public from './Pages/Public.jsx';
-import Protected from './Pages/Protected.jsx';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';	
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-
-
-
-
-
 class Main extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
   	this.state = {  
   		logged: false  
   	}
@@ -33,22 +22,12 @@ class Main extends React.Component {
 	
 	render() {
 		return (
-			<MuiThemeProvider>
-				<main>
-				
-					<Header />
-					
-					 <Router >
-						 <div>
-					      <Route path="/public" component={Public}/>
-					      <Route path="/protected" component={Protected}/>
-						  </div>
-					  </Router>
-					  
-					<Footer />
-				</main>
-			</MuiThemeProvider>
-				);
+			<main>
+				<Header />
+				  
+				<Footer />
+			</main>
+		);
 	}
 }
 
