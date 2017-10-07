@@ -1,7 +1,6 @@
 
 import React from 'react';
 import Nav from './Nav.jsx';
-import AppBar from 'material-ui/AppBar';
 
 /**
  * This example is taking advantage of the composability of the `AppBar`
@@ -12,7 +11,9 @@ class Header extends React.Component {
 	
 	render() {
 		return (
-			<AppBar title="Title"/>
+			<div>
+				<Nav />
+			</div>
 		);
 	}
 }

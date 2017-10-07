@@ -10,6 +10,7 @@ import {
 
 import Header from './Layout/Header.jsx';
 import Footer from './Layout/Footer.jsx';
+import Aside from './Layout/Aside.jsx';
 
 import Public from './Pages/Public.jsx';
 import Protected from './Pages/Protected.jsx';
@@ -23,29 +24,27 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 
 class Main extends React.Component {
-	constructor(){
-	super();
-        this.state = {  isAuthenticated: false  }
+	constructor() {
+		super();
+  	this.state = {  
+  		logged: false  
+  	}
 	}
 	
 	render() {
 		return (
-			<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+			<MuiThemeProvider>
 				<main>
+				
 					<Header />
 					
-					 <Router>
-					    <div>
-					      <ul>
-					        <li><Link to="/public">Public Page</Link></li>
-					        <li><Link to="/protected" >Protected Page</Link></li>
-					      </ul>
+					 <Router >
+						 <div>
 					      <Route path="/public" component={Public}/>
 					      <Route path="/protected" component={Protected}/>
-					      
-					    </div>
+						  </div>
 					  </Router>
-					
+					  
 					<Footer />
 				</main>
 			</MuiThemeProvider>
