@@ -10,7 +10,7 @@ import {
 
 import {logout} from './../../helpers.jsx';
 import Login from './Login.jsx';
-import Users from './Users.jsx'
+import NewPost from './NewPost.jsx'
 
 class Protected extends React.Component {
 	
@@ -40,7 +40,7 @@ class Protected extends React.Component {
 	  var authenticated = (
 	    <div>
 	      <p>Welcome</p>
-	      <Users />
+	      <NewPost />
 	      
 	      <button onClick={()=>this.logout()}>Logout</button>
       </div>

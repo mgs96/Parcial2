@@ -1,7 +1,7 @@
 import React from 'react';
 import {auth} from './../../helpers.jsx';
 
-class Users extends React.Component {
+class NewPost extends React.Component {
   
   constructor() {
     super();
@@ -59,7 +59,7 @@ class Users extends React.Component {
   
   render() {
     return (
-      <div>
+      <div style={{ textAlign: 'center' }}>
         <h2>Create users</h2>
     		<form onSubmit={this.handleSubmit}>
     		  Email   
@@ -95,4 +95,4 @@ class Users extends React.Component {
   }
 }
 
-export default Users;
+export default NewPost;
