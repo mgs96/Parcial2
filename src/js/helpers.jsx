@@ -40,6 +40,17 @@ export function saveUser (user) {
     .then(() => user)
 }
 
+export function createPost (post) {
+  console.log(post)
+  return ref.child('posts')
+    .push({
+      title: post.title,
+      desc: post.desc,
+      date: post.date
+    })
+    .then(() => post)
+}
+
 export function get_reference(node) {
   return firebase.database.ref().child()
 }

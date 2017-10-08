@@ -1,5 +1,5 @@
 import React from 'react';
-import {auth} from './../../helpers.jsx';
+import {createPost} from './../../helpers.jsx';
 
 class NewPost extends React.Component {
   
@@ -7,8 +7,8 @@ class NewPost extends React.Component {
     super();
     
     this.state = {
-      email: '',
-      password: ''
+      title: '',
+      desc: ''
     }
     
     this.handleChange = this.handleChange.bind(this);
@@ -23,18 +23,19 @@ class NewPost extends React.Component {
   
   handleSubmit(e) {
     e.preventDefault();
-    
-    auth(this.state.email,this.state.password)
-    .then((user) => {
-      //console.log(user);
-      this.setState({
-        email: '',
-        password: ''
+    const post = {
+      title: this.state.title,
+      desc: this.state.desc,
+      date: new Date().toString()
+    }
+    createPost(post)
+      .then((post) => {
+        console.log(post);
+        this.setState({
+          title: '',
+          desc: ''
+        })
       });
-    })
-    .catch((error) => {
-      console.log(error);
-    })
   }
   
   componentDidMount() {
@@ -58,37 +59,35 @@ class NewPost extends React.Component {
   }
   
   render() {
+    const style = {
+      margin: 12,
+    };
+    
     return (
       <div style={{ textAlign: 'center' }}>
-        <h2>Create users</h2>
-    		<form onSubmit={this.handleSubmit}>
-    		  Email   
-          <input value={this.state.email}    
-                onChange={this.handleChange} 
-                name="email"    
-                type="email" 
-                placeholder="email@domain.com"/>
-                
+        <h2>Crear post</h2>
+    		<form>
+    		  <TextField
+            hintText="Titulo del post"
+            name="title"
+            onChange={this.handleChange}
+            value={this.state.title}
+          />
+          
           <br />
           
-          Password    
-          <input value={this.state.password}     
-                onChange={this.handleChange} 
-                name="password"    
-                type="password" 
-                placeholder="password" />
+          <TextField 
+            value={this.state.desc}     
+            onChange={this.handleChange} 
+            name="desc"    
+            hintText="Descripción" 
+            multiLine={true}
+            rows={1}
+            rowsMax={20}
+          />
           <br />
           
-          Name   
-          <input value={this.state.name}    
-                onChange={this.handleChange} 
-                name="name"    
-                type="text" 
-                placeholder="Name"/>
-                
-          <br />
-          
-          <button>Create!</button>
+          <RaisedButton label="Primary" primary={true} style={style} onClick={this.handleSubmit} />
         </form>
       </div>
       );

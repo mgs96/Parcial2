@@ -67,7 +67,7 @@ class Login extends React.Component {
           
           <br />
           
-          <RaisedButton label="Primary" primary={true} style={style} onClick={this.handleSubmit} />
+          <RaisedButton label="Inicia sesión" primary={true} style={style} onClick={this.handleSubmit} />
         </form>
         
         <p>{this.state.message==='' ? '' : this.state.message}</p>
